@@ -1,15 +1,49 @@
 
-def max_list_iter(int_list):  # must use iteration not recursion
+def max_list_iter(int_list):
+   max = int_list[0]
+   for i in range ( len(list)):
+      if list[i]  > max:
+         max = list [i]
+   return max;
+
+   # must use iteration not recursion
    """finds the max of a list of numbers and returns the value (not the index)
    If int_list is empty, returns None. If list is None, raises ValueError"""
    pass
 
-def reverse_rec(int_list):   # must use recursion
+def reverse_rec(int_list):
+   #this is the base case for recursive function
+   if len(list) == 1:
+      return list
+   #if the list is greater than just one index
+   return reverse_rec(list[1:])+ list[0];
+
+   # must use recursion
    """recursively reverses a list of numbers and returns the reversed list
    If list is None, raises ValueError"""
    pass
 
-def bin_search(target, low, high, int_list):  # must use recursion
+
+
+def bin_search(target, low, high, int_list):
+   midpoint = 1+((low + high)/2)
+   if (len(int_list) == 1 & target == int_list[0]):
+      return 0
+
+   if high > 1 :
+
+      if target == int_list[midpoint]:
+         return midpoint
+
+      elif int_list[midpoint] > target:
+         return bin_search(target, low, midpoint-1, int_list)
+
+      else:
+         return bin_search(target, midpoint+1, high, int_list)
+   else:
+      return "None"
+
+   # must use recursion
    """searches for target in int_list[low..high] and returns index if found
    If target is not found returns None. If list is None, raises ValueError """
    pass
