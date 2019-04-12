@@ -7,7 +7,7 @@ class TestLab1(unittest.TestCase):
     def test_max_list_iter(self):
         """add description here"""
         tlist = None
-        with self.assertRaises(ValueError):  # used to check for exception
+        with self.assertRaises(TypeError):  # used to check for exception
             max_list_iter(tlist)
 
     def test_max_list_iter_simple(self):
@@ -52,8 +52,9 @@ class TestLab1(unittest.TestCase):
 
     def test_max_list_iter_letters(self):
         "this checks if characters return a value"
-        tlist = [A,B,C]
-        self.assertEqual(max_list_iter(tlist), None)
+        tlist = ['A','B','C']
+        with self.assertRaises(ValueError):  # used to check for exception
+            max_list_iter(tlist)
 
     def test_max_list_iter_strings(self):
         #this tests if strings return a value
@@ -70,11 +71,11 @@ class TestLab1(unittest.TestCase):
         tlist = [1,2.5,5,3.5,5.3]
         self.assertEqual(max_list_iter(tlist), 5.3)
 
-    def test_max_list_iter_chars_and_ints_and_strings_and_floats(self):
+    def test_max_list_iter_type_combo(self):
         #this includes both char and ints
-        tlist = [A,32,"3", 2.1]
-        self.assertEqual(max_list_iter(tlist), 32)
-
+        tlist = ['A',32,"3", 2.1]
+        with self.assertRaises(ValueError):  # used to check for exception
+            max_list_iter(tlist)
 
 
 
@@ -123,7 +124,9 @@ class TestLab1(unittest.TestCase):
         list_val = [1,1,1,1,1,1]
         low = 0
         high = len(list_val)-1
-        self.assertEqual(bin_search(4,0,len(list_val)-1, list_val), None)
+        with self.assertRaises(IndexError):  # used to check for exception
+            bin_search(4,0,len(list_val)-1, list_val)
+
 
     def test_bin_search_target_at_end(self):
         list_val =[0,1,2,3,4,7,8,9,10]
@@ -132,17 +135,17 @@ class TestLab1(unittest.TestCase):
         self.assertEqual(bin_search(10, 0, len(list_val)-1, list_val), 8 )
 
     def test_bin_search_negative_target(self):
-        list_val =[0,1,2,3,-4,7,8,9,10]
+        list_val =[-4,1,2,3,4,7,8,9,10]
         low = 0
         high = len(list_val)-1
-        self.assertEqual(bin_search(-4, 0, len(list_val)-1, list_val), 4 )
+        self.assertEqual(bin_search(-4, 0, len(list_val)-1, list_val), 0 )
 
     def test_bin_search_characters(self):
-        list_val =[0,1,2,3,A,7,8,9,10]
+        list_val =[0,1,2,3,'A',7,8,9,10]
         low = 0
         high = len(list_val)-1
-        with self.assertRaises(ValueError):  # used to check for exception
-            bin_search(A, 0, len(list_val)-1, list_val)
+        with self.assertRaises(TypeError):  # used to check for exception
+            bin_search('A', 0, len(list_val)-1, list_val)
 
     def test_bin_search_list_of_only_target(self):
         list_val =[1,1,1,1]

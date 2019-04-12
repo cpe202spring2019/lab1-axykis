@@ -1,9 +1,9 @@
 
 def max_list_iter(int_list):
-   max = int_list[0]
-   for i in range ( len(list)):
-      if list[i]  > max:
-         max = list [i]
+   max = int(int_list[0])
+   for i in range ( len(int_list)):
+      if int_list[i]  > max:
+         max = int_list [i]
    return max;
 
    # must use iteration not recursion
@@ -26,8 +26,8 @@ def reverse_rec(int_list):
 
 
 def bin_search(target, low, high, int_list):
-   midpoint = 1+((low + high)/2)
-   if (len(int_list) == 1 & target == int_list[0]):
+   midpoint = (int)(1+((low + high)/2))
+   if (len(int_list) == 1 and target == int_list[0]):
       return 0
 
    if high > 1 :
