@@ -4,9 +4,6 @@ from lab1 import *
  # A few test cases.  Add more!!!
 class TestLab1(unittest.TestCase):
 
-    def test_reverse_rec_negative_values(self):
-        self.assertEqual(reverse_rec([-1,-2,-3]),[-3,-2,-1])
-
     def test_max_list_iter(self):
         """add description here"""
         tlist = None
@@ -110,6 +107,8 @@ class TestLab1(unittest.TestCase):
     def test_reverse_rec_multiple_types(self):
         self.assertEqual(reverse_rec(["a",'b',3]),[3,'b',"a"])
 
+    def test_reverse_rec_negative_values(self):
+        self.assertEqual(reverse_rec([-1,-2,-3]),[-3,-2,-1])
 
 
 
