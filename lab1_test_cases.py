@@ -18,7 +18,7 @@ class TestLab1(unittest.TestCase):
     def test_max_list_iter_empty(self):
         #this is the case where it is empty
         tlist = []
-        self.assertEqual(max_list_iter(tlist), None)
+        self.assertEqual(max_list_iter(tlist), "None")
 
     def test_max_list_iter_all_val_same(self):
         #this is a list where all values are equal
@@ -58,8 +58,8 @@ class TestLab1(unittest.TestCase):
 
     def test_max_list_iter_strings(self):
         #this tests if strings return a value
-        tlist = ["a","b","c"]
-        self.assertEqual(max_list_iter(tlist), None)
+        tlist = ['a','b','c']
+        self.assertEqual(max_list_iter(tlist), "None")
 
     def test_max_list_iter_float(self):
         #this tests what floats return
@@ -86,13 +86,13 @@ class TestLab1(unittest.TestCase):
         self.assertEqual(reverse_rec([1,2,2,2,4]), [4,2,2,2,1])
 
     def test_reverse_rec_empty_case(self):
-        self.assertEqual(reverse_rec([]), None)
+        self.assertEqual(reverse_rec([]), "None")
 
     def test_reverse_rec_pallendrome(self):
-        self.assertEqual(reverse_rec[1,2,2,1], [1,2,2,1])
+        self.assertEqual(reverse_rec([1,2,2,1]), [1,2,2,1])
 
     def test_reverse_rec_negative_values(self):
-        self.assertEqual(reverse_rec[-1,-2,-3],[-3,-2,-1])
+        self.assertEqual(reverse_rec([-1,-2,-3]),[-3,-2,-1])
 
     def test_reverse_rec_single_num(self):
         self.assertEqual(reverse_rec([2]),[2])
@@ -108,7 +108,7 @@ class TestLab1(unittest.TestCase):
         self.assertEqual(reverse_rec(["ABC","123"]), None)
 
     def test_reverse_rec_multiple_types(self):
-        self.assertEqual(reverse_rec(["a",b,3]),[3,b,"a"])
+        self.assertEqual(reverse_rec(["a",'b',3]),[3,'b',"a"])
 
 
 

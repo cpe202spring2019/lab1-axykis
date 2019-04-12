@@ -1,5 +1,7 @@
 
 def max_list_iter(int_list):
+   if len(int_list)==0:
+       return "None"
    max = int(int_list[0])
    for i in range ( len(int_list)):
       if int_list[i]  > max:
