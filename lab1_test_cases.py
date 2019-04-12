@@ -59,7 +59,8 @@ class TestLab1(unittest.TestCase):
     def test_max_list_iter_strings(self):
         #this tests if strings return a value
         tlist = ['a','b','c']
-        self.assertEqual(max_list_iter(tlist), "None")
+        with self.assertRaises(ValueError):  # used to check for exception
+            max_list_iter(tlist)
 
     def test_max_list_iter_float(self):
         #this tests what floats return
@@ -87,7 +88,8 @@ class TestLab1(unittest.TestCase):
 
     def test_reverse_rec_empty_case(self):
         self.assertEqual(reverse_rec([]), "None")
-
+        with self.assertRaises(TypeError):  # used to check for exception
+            max_list_iter(tlist)
     def test_reverse_rec_pallendrome(self):
         self.assertEqual(reverse_rec([1,2,2,1]), [1,2,2,1])
 
@@ -134,10 +136,10 @@ class TestLab1(unittest.TestCase):
         self.assertEqual(bin_search(10, 0, len(list_val)-1, list_val), 8 )
 
     def test_bin_search_negative_target(self):
-        list_val =[-4,1,2,3,4,7,8,9,10]
+        list_val =[-4,0,2,3,4,7,8,9,10]
         low = 0
         high = len(list_val)-1
-        self.assertEqual(bin_search(-4, 0, len(list_val)-1, list_val), 0 )
+        self.assertEqual(bin_search(-4, 0, len(list_val)-1, list_val), "None" )
 
     def test_bin_search_characters(self):
         list_val =[0,1,2,3,'A',7,8,9,10]
