@@ -4,6 +4,9 @@ from lab1 import *
  # A few test cases.  Add more!!!
 class TestLab1(unittest.TestCase):
 
+    def test_reverse_rec_negative_values(self):
+        self.assertEqual(reverse_rec([-1,-2,-3]),[-3,-2,-1])
+
     def test_max_list_iter(self):
         """add description here"""
         tlist = None
@@ -91,9 +94,6 @@ class TestLab1(unittest.TestCase):
     def test_reverse_rec_pallendrome(self):
         self.assertEqual(reverse_rec([1,2,2,1]), [1,2,2,1])
 
-    def test_reverse_rec_negative_values(self):
-        self.assertEqual(reverse_rec([-1,-2,-3]),[-3,-2,-1])
-
     def test_reverse_rec_single_num(self):
         self.assertEqual(reverse_rec([2]),[2])
 
@@ -101,11 +101,11 @@ class TestLab1(unittest.TestCase):
         self.assertEqual(reverse_rec([2.1,2.2,2.3]), [2.3,2.2,2.1])
 
     def test_reverse_rec_chars(self):
-        self.assertEqual(reverse_rec([A,b,c]), [c,b,A])
+        self.assertEqual(reverse_rec(['A','b','c']), ['c','b','A'])
 
     def test_reverse_rec_strings(self):
 
-        self.assertEqual(reverse_rec(["ABC","123"]), None)
+        self.assertEqual(reverse_rec(["ABC","123"]), ["123","ABC"])
 
     def test_reverse_rec_multiple_types(self):
         self.assertEqual(reverse_rec(["a",'b',3]),[3,'b',"a"])

@@ -14,16 +14,19 @@ def max_list_iter(int_list):
    pass
 
 def reverse_rec(int_list):
+   print(int_list)
    #this is the base case for recursive function
    if len(int_list) == 1:
       return int_list
    #if the list is greater than just one index
-   return reverse_rec(int_list[1:]).append(int_list[0]);
+   x=reverse_rec(int_list[1:])
+   print(x)
+   x.append(int_list[0]);
+   return x
 
    # must use recursion
    """recursively reverses a list of numbers and returns the reversed list
    If list is None, raises ValueError"""
-   pass
 
 
 

@@ -11,7 +11,7 @@ class TestLab1(unittest.TestCase):
     def test_eq(self):
         loc = Location("San Diego", 32.7, -117.2)
         loc2 = Location("San Diego", 32.7, -117.2)
-        self.assertEqual(eq(loc), eq(loc2))
+        self.assertEqual(__eq__(loc,loc2), loc.name = loc2.name and loc.lat = loc2.lat and loc.lon = loc2.lon)
 
     def test_eq_set_obj_equal(self):
         loc1 = Location("SLO", 35.3, -120.7)
