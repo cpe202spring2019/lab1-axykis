@@ -42,6 +42,7 @@ class TestLab1(unittest.TestCase):
     def test_max_list_iter_max_in_pos1(self):
         tlist = [3,2,1]
         self.assertEqual(max_list_iter(tlist), 3)
+
     def test_max_list_iter_max_pos_mid(self):
         tlist = [1,2,3,2,1]
         self.assertEqual(max_list_iter(tlist), 3)
@@ -66,6 +67,11 @@ class TestLab1(unittest.TestCase):
         #this tests what floats return
         tlist = [2.1, 2.4, 2.8]
         self.assertEqual(max_list_iter(tlist), 2.8)
+
+    def test_max_list_iter_negfloat(self):
+        #this tests what floats return
+        tlist = [-2.1, -2.4, -2.8]
+        self.assertEqual(max_list_iter(tlist), -2)
 
     def test_max_list_iter_float_and_int(self):
         #mixs ints and floats
@@ -99,6 +105,9 @@ class TestLab1(unittest.TestCase):
     def test_reverse_rec_floats(self):
         self.assertEqual(reverse_rec([2.1,2.2,2.3]), [2.3,2.2,2.1])
 
+    def test_reverse_rec_negfloats(self):
+        self.assertEqual(reverse_rec([-2.1,-2.2,-2.3]), [-2.3,-2.2,-2.1])
+
     def test_reverse_rec_chars(self):
         self.assertEqual(reverse_rec(['A','b','c']), ['c','b','A'])
 
@@ -120,6 +129,12 @@ class TestLab1(unittest.TestCase):
         low = 0
         high = len(list_val)-1
         self.assertEqual(bin_search(4, 0, len(list_val)-1, list_val), 4 )
+
+    def test_bin_search_float(self):
+        list_val =[0.5,1.5,2.5,3.5,4.5,7.5,8.5,9.5,10.5]
+        low = 0
+        high = len(list_val)-1
+        self.assertEqual(bin_search(4.5, 0, len(list_val)-1, list_val), 4 )
 
     def test_bin_search(self):
         list_val =[0,1,2,3,4,7,8,9,10]
@@ -159,6 +174,12 @@ class TestLab1(unittest.TestCase):
         low = 0
         high = len(list_val)-1
         self.assertEqual(bin_search(1, 0, len(list_val)-1, list_val), 2 )
+
+    def test_bin_search_target_at_end(self):
+        list_val = [1,1,1,1,1,4]
+        low = 0
+        high = len(list_val)-1
+        self.assertEqual(bin_search(4, 0, len(list_val)-1, list_val), 5 )
 
 
 if __name__ == "__main__":
